@@ -226,6 +226,9 @@ public class ChessMatch {
         //red king
         placeNewPiece('e', 8, new King(board, Color.RED));
 
+        //blue queen
+        placeNewPiece('d', 8, new Queen(board, Color.RED));
+
         //----------------------------------------------------------------------
 
         //blue pawns
@@ -252,5 +255,8 @@ public class ChessMatch {
 
         //blue king
         placeNewPiece('e', 1, new King(board, Color.BLUE));
+
+        //blue queen
+        placeNewPiece('d', 1, new Queen(board, Color.BLUE));
     }
 }
