@@ -5,20 +5,14 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public class King extends ChessPiece {
-
-    public King(Board board, Color color) {
+public class Bishop extends ChessPiece {
+    public Bishop(Board board, Color color) {
         super(board, color);
     }
 
     @Override
     public String toString() {
-        return "K";
-    }
-
-    private boolean canMove(Position position) {
-        ChessPiece chessPiece = (ChessPiece) getBoard().piece(position);
-        return chessPiece == null || chessPiece.getColor() != getColor();
+        return "B";
     }
 
     @Override
@@ -27,51 +21,43 @@ public class King extends ChessPiece {
 
         Position position = new Position(0, 0);
 
-        //up
-        position.setValues(this.position.getRow() - 1, this.position.getColumn());
-        if (getBoard().positionExists(position) && canMove(position)) {
-            possibleMoves[position.getRow()][position.getColumn()] = true;
-        }
-
         //nw
         position.setValues(this.position.getRow() - 1, this.position.getColumn() - 1);
-        if (getBoard().positionExists(position) && canMove(position)) {
+        while (getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
             possibleMoves[position.getRow()][position.getColumn()] = true;
+            position.setValues(position.getRow() - 1, position.getColumn() - 1);
         }
-
-        //left
-        position.setValues(this.position.getRow(), this.position.getColumn() - 1);
-        if (getBoard().positionExists(position) && canMove(position)) {
+        if (getBoard().positionExists(position) && isThereOpponentPiece(position)) {
             possibleMoves[position.getRow()][position.getColumn()] = true;
         }
 
         //sw
         position.setValues(this.position.getRow() + 1, this.position.getColumn() - 1);
-        if (getBoard().positionExists(position) && canMove(position)) {
+        while (getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
             possibleMoves[position.getRow()][position.getColumn()] = true;
+            position.setValues(position.getRow() + 1, position.getColumn() - 1);
         }
-
-        //down
-        position.setValues(this.position.getRow() + 1, this.position.getColumn());
-        if (getBoard().positionExists(position) && canMove(position)) {
+        if (getBoard().positionExists(position) && isThereOpponentPiece(position)) {
             possibleMoves[position.getRow()][position.getColumn()] = true;
         }
 
         //se
         position.setValues(this.position.getRow() + 1, this.position.getColumn() + 1);
-        if (getBoard().positionExists(position) && canMove(position)) {
+        while (getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
             possibleMoves[position.getRow()][position.getColumn()] = true;
+            position.setValues(position.getRow() + 1, position.getColumn() + 1);
         }
-
-        //right
-        position.setValues(this.position.getRow(), this.position.getColumn() + 1);
-        if (getBoard().positionExists(position) && canMove(position)) {
+        if (getBoard().positionExists(position) && isThereOpponentPiece(position)) {
             possibleMoves[position.getRow()][position.getColumn()] = true;
         }
 
         //ne
         position.setValues(this.position.getRow() - 1, this.position.getColumn() + 1);
-        if (getBoard().positionExists(position) && canMove(position)) {
+        while (getBoard().positionExists(position) && !getBoard().thereIsAPiece(position)) {
+            possibleMoves[position.getRow()][position.getColumn()] = true;
+            position.setValues(position.getRow() - 1, position.getColumn() + 1);
+        }
+        if (getBoard().positionExists(position) && isThereOpponentPiece(position)) {
             possibleMoves[position.getRow()][position.getColumn()] = true;
         }
 
