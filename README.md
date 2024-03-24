@@ -10,15 +10,15 @@
     Classes;
   </li>
   <li>
+    Classes abstratas;
+  </li>
+  <li>
     Herença;
   </li>
   <li>
-    Polimorfismo;
+    Polimorfismo
   </li>
-  <li>
-    Interfaces.
-  </li>
-  <p>
-    Além de aprender a trocar a cor de letras e do fundo das letras no terminal.
-  </p>
 </ul>
+<p>
+    Além de aprender a trocar a cor de letras e do fundo das letras no terminal.
+</p>
