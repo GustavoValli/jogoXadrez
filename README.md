@@ -22,3 +22,9 @@
 <p>
     Além de aprender a trocar a cor de letras e do fundo das letras no terminal.
 </p>
+<h1>
+  Como testar o projeto?
+</h1>
+<p>
+  Dê um clone no projeto e abra no Intellij e dê o "run" na classe main.
+</p>
